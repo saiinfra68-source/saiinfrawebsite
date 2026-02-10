@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SAI INFRA | Real Estate & Infrastructure Development Firm – Bareilly</title>
+  <meta name="description" content="SAI INFRA is a trusted real estate and infrastructure development firm in Bareilly, delivering compliant residential projects including Aarna County (BDA Approved)." />
+
+  <style>
+    :root{
+      --primary:#0f172a;
+      --accent:#c9a227;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#64748b;
+      --radius:14px;
+      --shadow:0 20px 40px rgba(15,23,42,.06);
+    }
+
+    /* Dark theme variables */
+    [data-theme="dark"]{
+      --primary:#e5e7eb;
+      --accent:#e6c453;
+      --bg:#020617;
+      --card:#0f172a;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --shadow:0 20px 40px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:background .3s,color .3s;}
+
+    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;}
+    [data-theme="dark"] nav{background:rgba(2,6,23,.85);}    
+    nav a{text-decoration:none;font-weight:600;color:var(--primary);} 
+
+    .theme-toggle{cursor:pointer;border:none;background:transparent;font-size:18px;}
+
+    header{background:linear-gradient(135deg,#020617,#0f172a);color:#fff;text-align:center;padding:clamp(80px,12vw,120px) 20px clamp(60px,10vw,100px);}    
+    header h1{font-size:clamp(34px,6vw,48px);margin-bottom:8px;letter-spacing:2px;font-weight:900;}
+    .tagline{font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#e5e7eb;opacity:.9;}
+    header p{max-width:760px;margin:22px auto 0;color:#cbd5e1;font-size:17px;}
+
+    .cta{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+    .cta a{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 10px 24px rgba(15,23,42,.25);transition:transform .2s,box-shadow .2s;}    
+    .cta a:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(15,23,42,.35);}    
+    .cta a.primary{background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;}    
+    .cta a.secondary{background:linear-gradient(135deg,#1e293b,#0f172a);color:#fff;}    
+    .cta a.youtube{background:linear-gradient(135deg,#ff0000,#cc0000);color:#fff;}    
+    .cta a.instagram{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff;}    
+
+    .container{max-width:1200px;margin:auto;padding:clamp(48px,8vw,80px) 16px;}
+    section{background:var(--card);margin-bottom:clamp(32px,6vw,48px);padding:clamp(28px,6vw,48px);border-radius:var(--radius);box-shadow:var(--shadow);}        
+    h2{margin-top:0;font-size:clamp(24px,4vw,32px);color:var(--primary);}        
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:28px;}
+    .card{padding:32px;border-radius:18px;background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.08);}    
+
+    footer{background:#020617;color:#e5e7eb;text-align:center;padding:36px 20px;font-size:14px;}
+  </style>
+</head>
+<body>
+
+<nav aria-label="Primary navigation">
+  <div style="display:flex;gap:18px;align-items:center;">
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark or light mode">🌙</button>
+</nav>
+
+<header id="home">
+  <h1>SAI INFRA</h1>
+  <div class="tagline">Real Estate & Infrastructure Development Firm</div>
+  <p>Delivering compliant, well-planned residential developments in Bareilly with a strong foundation of trust, transparency, and long-term value.</p>
+
+  <div style="margin-top:18px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+    <span style="padding:8px 18px;border-radius:999px;font-weight:800;font-size:13px;background:linear-gradient(135deg,#16a34a,#22c55e);color:#ffffff;box-shadow:0 6px 18px rgba(34,197,94,.35);">50+ Happy Customers</span>
+    <span style="padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;background:linear-gradient(135deg,#2563eb,#3b82f6);color:#ffffff;box-shadow:0 6px 18px rgba(59,130,246,.35);">Trusted Local Developer</span>
+  </div>
+
+  <div class="cta">
+    <a href="#projects" class="primary">View Our Projects</a>
+    <a href="tel:+919520954467" class="secondary">📞 Call Us</a>
+    <a href="https://wa.me/919520954467" target="_blank" rel="noopener noreferrer" class="secondary">💬 WhatsApp</a>
+    <a href="https://youtube.com/@aarnacounty.1234?si=lbj_BjiU64GcKFZ-" target="_blank" rel="noopener noreferrer" class="youtube">▶ YouTube</a>
+    <a href="https://www.instagram.com/aarna_county_bareilly" target="_blank" rel="noopener noreferrer" class="instagram">📸 Instagram</a>
+  </div>
+</header>
+
+<div class="container">
+
+<section id="projects">
+  <h2>Our Projects</h2>
+  <p style="color:var(--muted);max-width:820px;">Explore our flagship residential development, thoughtfully planned and executed with a focus on compliance, infrastructure quality, and long-term value for homeowners.</p>
+
+  <div class="grid">
+    <a href="aarna-county.html" style="text-decoration:none;color:inherit;">
+      <div class="card" style="position:relative;overflow:hidden;">
+        
+        <!-- Project Badge -->
+        <span style="position:absolute;top:18px;right:18px;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:800;background:linear-gradient(135deg,#c9a227,#e6c453);color:#111827;box-shadow:0 6px 16px rgba(201,162,39,.35);">BDA APPROVED</span>
+
+        <h3 style="margin-top:0;font-size:22px;">Aarna County</h3>
+        <p style="color:var(--muted);margin:12px 0 18px;">A BDA-approved residential colony in Bareilly, developed by SAI INFRA with a focus on planned layouts, infrastructure readiness, and long-term livability.</p>
+
+        <ul style="padding-left:18px;color:var(--muted);margin-bottom:22px;">
+          <li>Planned residential plots</li>
+          <li>Approved layout & compliance</li>
+          <li>Internal roads & basic infrastructure</li>
+          <li>Strategic Bareilly location</li>
+        </ul>
+
+        <div style="font-weight:800;color:var(--primary);">View Project Details →</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About SAI INFRA</h2>
+  <p style="color:var(--muted);max-width:900px;">SAI INFRA is an established real estate and infrastructure development firm with years of on-ground experience in planning, developing, and delivering residential projects. With a strong understanding of local regulations, land development processes, and customer expectations, the firm has steadily built a reputation for reliability and professionalism in Bareilly and surrounding regions.</p>
+  <p style="color:var(--muted);max-width:900px;">Over the years, SAI INFRA has been involved in multiple stages of real estate development—from land identification and approvals to layout planning and infrastructure execution. The firm follows a transparent, compliance-driven approach, ensuring that every project aligns with statutory norms, long-term usability, and sustainable development practices.</p>
+  <p style="color:var(--muted);max-width:900px;">Guided by experience, local expertise, and a commitment to trust, SAI INFRA focuses on creating well-planned communities that offer long-term value to customers, investors, and stakeholders.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p style="color:var(--muted);max-width:720px;">For project enquiries, site visits, partnerships, or any information related to our developments, please connect with <strong>SAI INFRA</strong> through the details below. Our team will be happy to assist you.</p>
+
+  <div class="grid" style="margin-top:32px;">
+    <div class="card">
+      <h3>📞 Phone</h3>
+      <p style="color:var(--muted);">Speak directly with our team for quick assistance.</p>
+      <p style="font-weight:700;font-size:18px;">9520954467</p>
+      <a href="tel:+919520954467" style="font-weight:700;color:var(--primary);text-decoration:none;">Call Now →</a>
+    </div>
+
+    <div class="card">
+      <h3>💬 WhatsApp</h3>
+      <p style="color:var(--muted);">Send us your enquiry and get a prompt response.</p>
+      <p style="font-weight:700;font-size:18px;">Chat on WhatsApp</p>
+      <a href="https://wa.me/919520954467" target="_blank" rel="noopener noreferrer" style="font-weight:700;color:var(--primary);text-decoration:none;">Start Chat →</a>
+    </div>
+
+    <div class="card">
+      <h3>✉️ Email</h3>
+      <p style="color:var(--muted);">For detailed enquiries and official communication.</p>
+      <p style="font-weight:700;font-size:16px;">marketing@sai-infra.in</p>
+      <a href="mailto:marketing@sai-infra.in" style="font-weight:700;color:var(--primary);text-decoration:none;">Send Email →</a>
+    </div>
+
+    <div class="card">
+      <h3>📍 Office Location</h3>
+      <p style="color:var(--muted);">Serving Bareilly and surrounding regions.</p>
+      <p style="font-weight:700;font-size:16px;">Bareilly, Uttar Pradesh</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div style="max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
+    <div>
+      © 2026 <strong>SAI INFRA</strong>. All Rights Reserved.
+    </div>
+    <div style="font-size:13px;opacity:.85;">
+      Website designed & developed by <strong>Saksham Srivastav</strong> | Contact: <a href="tel:+919528118484" style="color:#e5e7eb;text-decoration:none;">+91 95281 18484</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Accessibility: reduce motion if user prefers
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.documentElement.style.scrollBehavior = 'auto';
+  }
+  const toggleBtn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  // Load saved theme or system preference
+  const savedTheme = localStorage.getItem('theme');
+  if(savedTheme){
+    root.setAttribute('data-theme', savedTheme);
+    toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  } else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    root.setAttribute('data-theme','dark');
+    toggleBtn.textContent = '☀️';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    toggleBtn.textContent = isDark ? '🌙' : '☀️';
+  });
+</script>
+</body>
+</html>
