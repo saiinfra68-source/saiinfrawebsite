@@ -21,7 +21,11 @@
     body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
     body.dark{background:#020617;color:#e5e7eb;}
 
-    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+    body.dark nav{background:rgba(2,6,23,.9);}
+    .nav-links{display:flex;gap:18px;align-items:center;}
+    .theme-toggle{margin-left:auto;cursor:pointer;border:none;background:transparent;font-size:20px;font-weight:700;transition:transform .2s ease;}
+    .theme-toggle:hover{transform:scale(1.1);}
     nav a{text-decoration:none;font-weight:600;color:var(--primary);} 
     body.dark nav a{color:#e5e7eb;}
 
@@ -44,6 +48,10 @@
     h2{margin-top:0;font-size:30px;color:var(--primary);}        
 
     footer{background:#020617;color:#e5e7eb;text-align:center;padding:34px 20px;font-size:14px;}
+    body.dark section{background:#0f172a;color:#e5e7eb;}
+    body.dark .container{color:#e5e7eb;}
+    body.dark h2{color:#e5e7eb;}
+    body.dark input, body.dark textarea{background:#0f172a;color:#e5e7eb;border:1px solid #334155;}
     .social-wrap{display:flex;justify-content:center;gap:14px;margin-top:22px;}
     .social-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px;box-shadow:0 8px 20px rgba(15,23,42,.35);transition:transform .2s,box-shadow .2s;}
     .social-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,23,42,.45);}    
@@ -54,43 +62,40 @@
   </style>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    "name": "Aarna County",
-    "description": "Aarna County is a BDA Approved residential colony in Bareilly developed by SAI INFRA.",
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 28.4039,
-      "longitude": 79.4096
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "SAI INFRA",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bareilly",
-        "addressRegion": "UP",
-        "addressCountry": "IN"
-      }
-    },
-    "image": [
-      {
-        "@type": "ImageObject",
-        "contentUrl": "https://www.google.com/maps/place/AARNA+COUNTY",
-        "caption": "Aarna County – Site Photos (Google Maps)"
-      }
-    ]
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": "Aarna County",
+  "description": "Aarna County is a BDA Approved residential colony in Bareilly developed by SAI INFRA.",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.4039,
+    "longitude": 79.4096
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "SAI INFRA",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bareilly",
+      "addressRegion": "UP",
+      "addressCountry": "IN"
+    }
   }
-  </script>
+}
+</script>
 </head>
 <body>
 
 <nav aria-label="Project navigation">
-  <a href="index.html" class="back-link" aria-label="Back to SAI INFRA home">← Back to SAI INFRA</a>
-  <a href="#overview">Overview</a>
-  <a href="#highlights">Highlights</a>
-  <a href="#contact">Enquiry</a>
+  <div class="nav-links">
+    <a href="index.html" class="back-link" aria-label="Back to SAI INFRA home">← Back to SAI INFRA</a>
+    <a href="#overview">Overview</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#contact">Enquiry</a>
+    <a href="https://drive.google.com/file/d/1LVi7krMBwifBIYhVR6nbxrQwNRLJ5Qy2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Brochure</a>
+  </div>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
 </nav>
 
 <header id="overview">
@@ -108,7 +113,7 @@
     <a href="https://www.google.com/maps/place/AARNA+COUNTY/@28.3830895,79.4038916,19z/data=!3m1!4b1!4m6!3m5!1s0x39a00750d9cc8e93:0xa920f1ce175daace!8m2!3d28.3830895!4d79.4045353!16s%2Fg%2F11k3s1wkj6" target="_blank" rel="noopener noreferrer" class="primary">📷 Photos</a>
     
     <a href="https://youtube.com/@aarnacounty.1234?si=lbj_BjiU64GcKFZ-" target="_blank" rel="noopener noreferrer" class="youtube">▶ YouTube</a>
-    <a href="https://www.instagram.com/aarna_county_bareilly" target="_blank" rel="noopener noreferrer" class="instagram">📸 Instagram</a>
+    <a href="https://www.instagram.com/aarna_colony?igsh=MXg0MjBnZjYzM3g5dw==" target="_blank" rel="noopener noreferrer" class="instagram">📸 Instagram</a>
   </div>
 </header>
 
@@ -124,10 +129,24 @@
   <h2>Project Highlights</h2>
   <ul>
     <li>BDA Approved Residential Colony</li>
+    <li>Two Gated Entry & Exit Points for Enhanced Security</li>
+    <li>9 Meter Wide Internal Roads for Smooth Connectivity</li>
     <li>Planned layout and internal roads</li>
     <li>Peaceful residential environment</li>
     <li>Developed by SAI INFRA</li>
   </ul>
+</section>
+
+<section id="brochure">
+  <h2>Project Brochure</h2>
+  <p style="color:var(--muted);max-width:720px;">
+    Download the official Aarna County project brochure for complete layout details, specifications, connectivity advantages, and development highlights.
+  </p>
+  <div style="margin-top:22px;">
+    <a href="https://drive.google.com/file/d/1LVi7krMBwifBIYhVR6nbxrQwNRLJ5Qy2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 30px;border-radius:999px;font-weight:800;text-decoration:none;background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;box-shadow:0 10px 24px rgba(201,162,39,.35);transition:all .2s ease;">
+      📄 Download Brochure (PDF)
+    </a>
+  </div>
 </section>
 
 <section id="location">
@@ -143,7 +162,6 @@
 
   <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:12px;">
     <a href="https://www.google.com/maps/place/AARNA+COUNTY/@28.3830895,79.4038916,19z/data=!3m1!4b1!4m6!3m5!1s0x39a00750d9cc8e93:0xa920f1ce175daace!8m2!3d28.3830895!4d79.4045353!16s%2Fg%2F11k3s1wkj6" target="_blank" rel="noopener noreferrer" class="primary" style="text-decoration:none;">📷 View Photos (Google Maps)</a>
-    
   </div>
 
   <div style="margin-top:24px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
@@ -211,7 +229,7 @@
   <div style="margin-top:18px;font-weight:700;letter-spacing:.4px;">Follow Aarna County</div>
   <div class="social-wrap">
     <a href="https://youtube.com/@aarnacounty.1234?si=lbj_BjiU64GcKFZ-" target="_blank" rel="noopener noreferrer" class="social-btn social-yt">▶ YouTube</a>
-    <a href="https://www.instagram.com/aarna_county_bareilly" target="_blank" rel="noopener noreferrer" class="social-btn social-ig">📸 Instagram</a>
+    <a href="https://www.instagram.com/aarna_colony?igsh=MXg0MjBnZjYzM3g5dw==" target="_blank" rel="noopener noreferrer" class="social-btn social-ig">📸 Instagram</a>
   </div>
 
   <div style="margin-top:22px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px;font-size:13px;opacity:.9;">
@@ -222,14 +240,62 @@
 <script>
 function handleEnquiry(e){
   e.preventDefault();
-  const name=document.getElementById('name').value;
-  const phone=document.getElementById('phone').value;
-  const email=document.getElementById('email').value;
-  const message=document.getElementById('message').value;
 
-  const text=`Enquiry for Aarna County%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0AMessage: ${message}`;
-  window.location.href=`https://wa.me/919520954467?text=${text}`;
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  const subject = "New Enquiry – Aarna County | SAI INFRA";
+
+  const body = `Dear SAI INFRA Team,%0D%0A%0D%0A` +
+               `You have received a new enquiry through the official Aarna County website.%0D%0A%0D%0A` +
+               `Enquiry Details:%0D%0A` +
+               `-----------------------------------------%0D%0A` +
+               `Full Name       : ${name}%0D%0A` +
+               `Mobile Number   : ${phone}%0D%0A` +
+               `Email Address   : ${email}%0D%0A` +
+               `Message         : ${message}%0D%0A` +
+               `-----------------------------------------%0D%0A%0D%0A` +
+               `Kindly connect with the prospective customer at the earliest.%0D%0A%0D%0A` +
+               `Regards,%0D%0A` +
+               `Website Enquiry System%0D%0A` +
+               `SAI INFRA`;
+
+  window.location.href = `mailto:marketing@sai-infra.in?subject=${encodeURIComponent(subject)}&body=${body}`;
 }
+</script>
+
+<script>
+// Dark / Light Toggle (Professional & Stable)
+document.addEventListener('DOMContentLoaded', function(){
+  const toggleBtn = document.getElementById('themeToggle');
+  if(!toggleBtn) return;
+
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      document.body.classList.add('dark');
+      toggleBtn.textContent = '☀️';
+    } else {
+      document.body.classList.remove('dark');
+      toggleBtn.textContent = '🌙';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  if(savedTheme){
+    applyTheme(savedTheme);
+  } else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    applyTheme('dark');
+  }
+
+  toggleBtn.addEventListener('click', function(){
+    const isDark = document.body.classList.contains('dark');
+    const newTheme = isDark ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  });
+});
 </script>
 
 </body>
