@@ -19,13 +19,67 @@
     }
     *{box-sizing:border-box;}
     body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+    
     body.dark{background:#020617;color:#e5e7eb;}
 
-    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;}
-    body.dark nav{background:rgba(2,6,23,.9);}
-    .nav-links{display:flex;gap:18px;align-items:center;}
-    .theme-toggle{margin-left:auto;cursor:pointer;border:none;background:transparent;font-size:20px;font-weight:700;transition:transform .2s ease;}
-    .theme-toggle:hover{transform:scale(1.1);}
+    nav{
+      position:sticky;
+      top:0;
+      z-index:9999;
+      width:96%;
+      margin:12px auto 0 auto;
+      background:rgba(255,255,255,0.65);
+      backdrop-filter:blur(16px) saturate(180%);
+      -webkit-backdrop-filter:blur(16px) saturate(180%);
+      padding:14px 28px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:18px;
+      box-shadow:0 8px 30px rgba(0,0,0,.08);
+      transition:all .35s ease;
+      animation:slideDown .6s ease forwards;
+    }
+
+    nav.scrolled{
+      padding:8px 28px;
+      box-shadow:0 10px 35px rgba(0,0,0,.15);
+      transform:translateY(-2px);
+    }
+
+    nav.scrolled .nav-links a{
+      font-size:14px;
+    }
+
+    nav.scrolled .theme-toggle{
+      font-size:18px;
+    } 
+    body.dark nav{
+      background:rgba(15,23,42,0.65);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 8px 30px rgba(0,0,0,.45);
+    }
+    
+    .nav-links{
+      display:flex;
+      gap:28px;
+      align-items:center;
+    } 
+    .nav-links a{position:relative;padding:6px 4px;transition:color .2s ease;} 
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .25s ease;} 
+    .nav-links a:hover::after{width:100%;} 
+    .nav-links a.active::after{width:100%;}
+    .theme-toggle{
+      cursor:pointer;
+      border:none;
+      background:transparent;
+      font-size:20px;
+      font-weight:700;
+      transition:transform .2s ease;
+    }
+    .theme-toggle:hover{transform:scale(1.15) rotate(10deg);}
     nav a{text-decoration:none;font-weight:600;color:var(--primary);} 
     body.dark nav a{color:#e5e7eb;}
 
@@ -59,6 +113,65 @@
     .social-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff;}
     .back-link{font-weight:700;color:var(--primary);text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
     .back-link:hover{text-decoration:underline;}
+  
+
+    /* Smooth Slide Animation */
+    @keyframes slideDown{
+      from{
+        opacity:0;
+        transform:translateY(-40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* ---------- Scroll Reveal Animation ---------- */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s cubic-bezier(.2,.65,.3,1);
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Section Hover Lift Effect */
+    section{
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+
+    section:hover{
+      transform:translateY(-6px);
+      box-shadow:0 25px 60px rgba(15,23,42,.12);
+    }
+
+    /* Animated Badge Pulse */
+    .badge{
+      animation:badgeGlow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes badgeGlow{
+      from{ box-shadow:0 0 0 rgba(201,162,39,0); }
+      to{ box-shadow:0 0 18px rgba(201,162,39,.35); }
+    }
+
+    /* Button Smooth Hover Enhancement */
+    .cta a, button{
+      transition:all .3s ease;
+    }
+
+    .cta a:hover, button:hover{
+      transform:translateY(-3px) scale(1.03);
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -89,11 +202,11 @@
 
 <nav aria-label="Project navigation">
   <div class="nav-links">
-    <a href="index.html" class="back-link" aria-label="Back to SAI INFRA home">← Back to SAI INFRA</a>
-    <a href="#overview">Overview</a>
+    <a href="index.html" class="back-link">← Back to SAI INFRA</a>
+    <a href="#overview" class="active">Overview</a>
     <a href="#highlights">Highlights</a>
+    <a href="#brochure">Brochure</a>
     <a href="#contact">Enquiry</a>
-    <a href="https://drive.google.com/file/d/1LVi7krMBwifBIYhVR6nbxrQwNRLJ5Qy2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Brochure</a>
   </div>
   <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
 </nav>
@@ -119,13 +232,9 @@
 
 <div class="container">
 
-<nav aria-label="Breadcrumb" style="font-size:14px;margin-bottom:24px;color:var(--muted);">
-  <a href="index.html" style="color:var(--primary);font-weight:600;">SAI INFRA</a>
-  <span style="margin:0 8px;">›</span>
-  <span aria-current="page">Aarna County</span>
-</nav>
 
-<section id="highlights">
+
+<section id="highlights" class="reveal">
   <h2>Project Highlights</h2>
   <ul>
     <li>BDA Approved Residential Colony</li>
@@ -137,7 +246,7 @@
   </ul>
 </section>
 
-<section id="brochure">
+<section id="brochure" class="reveal">
   <h2>Project Brochure</h2>
   <p style="color:var(--muted);max-width:720px;">
     Download the official Aarna County project brochure for complete layout details, specifications, connectivity advantages, and development highlights.
@@ -149,7 +258,7 @@
   </div>
 </section>
 
-<section id="location">
+<section id="location" class="reveal">
   <h2>Site Location</h2>
   <p style="color:var(--muted);max-width:720px;">Aarna County is strategically located at <strong>Gandhi Puram, Izatnagar, Bareilly, Uttar Pradesh – 243122</strong>, offering convenient access to key city landmarks.</p>
 
@@ -177,7 +286,7 @@
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" class="reveal">
   <h2>Enquiry</h2>
   <p style="color:var(--muted);max-width:720px;">Please fill in the enquiry form below and our team from <strong>SAI INFRA</strong> will contact you shortly. You may also reach us directly via phone or WhatsApp.</p>
 
@@ -246,21 +355,20 @@ function handleEnquiry(e){
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
 
-  const subject = "New Enquiry – Aarna County | SAI INFRA";
+  const subject = "Enquiry for Aarna County – From " + name;
 
   const body = `Dear SAI INFRA Team,%0D%0A%0D%0A` +
-               `You have received a new enquiry through the official Aarna County website.%0D%0A%0D%0A` +
-               `Enquiry Details:%0D%0A` +
+               `I am interested in Aarna County and would like to request further details regarding the project.%0D%0A%0D%0A` +
+               `My Contact Details are as follows:%0D%0A` +
                `-----------------------------------------%0D%0A` +
-               `Full Name       : ${name}%0D%0A` +
-               `Mobile Number   : ${phone}%0D%0A` +
-               `Email Address   : ${email}%0D%0A` +
-               `Message         : ${message}%0D%0A` +
+               `Full Name     : ${name}%0D%0A` +
+               `Mobile Number : ${phone}%0D%0A` +
+               `Email Address : ${email}%0D%0A` +
                `-----------------------------------------%0D%0A%0D%0A` +
-               `Kindly connect with the prospective customer at the earliest.%0D%0A%0D%0A` +
-               `Regards,%0D%0A` +
-               `Website Enquiry System%0D%0A` +
-               `SAI INFRA`;
+               `Message:%0D%0A${message}%0D%0A%0D%0A` +
+               `Kindly contact me at your earliest convenience.%0D%0A%0D%0A` +
+               `Thanking You,%0D%0A` +
+               `${name}`;
 
   window.location.href = `mailto:marketing@sai-infra.in?subject=${encodeURIComponent(subject)}&body=${body}`;
 }
@@ -270,6 +378,7 @@ function handleEnquiry(e){
 // Dark / Light Toggle (Professional & Stable)
 document.addEventListener('DOMContentLoaded', function(){
   const toggleBtn = document.getElementById('themeToggle');
+  const navbar = document.querySelector('nav');
   if(!toggleBtn) return;
 
   function applyTheme(theme){
@@ -295,6 +404,27 @@ document.addEventListener('DOMContentLoaded', function(){
     localStorage.setItem('theme', newTheme);
     applyTheme(newTheme);
   });
+
+    // Shrink effect on scroll
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 50){
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll Reveal Activation
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold:0.15 });
+
+  reveals.forEach(section => observer.observe(section));
 });
 </script>
 
