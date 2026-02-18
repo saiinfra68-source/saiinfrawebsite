@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Aarna County | Premium Residential Plots</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --primary:#0b0f19;
+  --accent:#d4af37;
+  --bg:#0b0f19;
+  --bg-soft:#111827;
+  --card:#111827;
+  --card-soft:#0f172a;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:rgba(212,175,55,.25);
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0b0f19,#111827 40%,#0f172a);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  padding-top:90px; /* Prevent content overlap due to fixed nav */
+  border:2px solid var(--accent); /* Premium 2px Golden Page Border */
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(212,175,55,.12), transparent 70%);
+  top:-200px;
+  right:-150px;
+  z-index:-1;
+}
+
+.top-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(15,23,42,.92);
+  backdrop-filter:blur(16px);
+  padding:20px clamp(20px,5vw,60px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;  box-shadow:0 10px 30px rgba(0,0,0,.25), 0 3px 20px rgba(212,175,55,.25);
+  position:fixed;
+}
+
+
+.brand{
+  color:var(--accent);
+  font-weight:700;
+  letter-spacing:2px;
+  font-size:20px;
+}
+
+.nav-cta{
+  background:linear-gradient(135deg,#d4af37,#b9922e);
+  padding:12px 26px;
+  border-radius:40px;
+  font-size:15px;
+  font-weight:600;
+  color:#111;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(212,175,55,.35);
+  transition:.3s ease;
+}
+
+.nav-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 35px rgba(212,175,55,.55);
+}
+
+.hero{
+  position:relative;
+  text-align:center;
+  padding:110px 20px 90px;
+  background:linear-gradient(135deg,#0b0f19,#111827 40%,#0f172a);
+  color:#ffffff;
+  border-top:2px solid var(--accent);
+  border-bottom:2px solid var(--accent);
+  box-shadow:0 0 40px rgba(212,175,55,.15);
+}
+
+.hero h1{
+  font-size:20px;
+  letter-spacing:4px;
+  font-weight:600;
+  margin-bottom:20px;
+  color:var(--accent);
+}
+
+.hero h2{
+  font-size:42px;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:18px;
+  background:linear-gradient(135deg,#d4af37,#b9922e);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 8px 25px rgba(212,175,55,.25);
+}
+
+.hero p{
+  margin-top:18px;
+  font-size:16px;
+  color:var(--accent);
+  font-weight:600;
+  letter-spacing:.5px;
+  text-shadow:0 4px 15px rgba(212,175,55,.25);
+}
+
+.main-wrapper{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  padding:80px 20px;
+}
+
+.container{
+  width:100%;
+  max-width:900px;
+  background:linear-gradient(145deg,#ffffff,#f8fafc);
+  padding:60px;
+  border-radius:20px;
+  border:2px solid #d4af37;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  position:relative;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:45px;
+  font-weight:700;
+  font-size:28px;
+  color:#000000;
+}
+
+.section-title{
+  font-size:12px;
+  font-weight:700;
+  margin:35px 0 20px;
+  padding-bottom:10px;
+  border-bottom:1px solid #e2e8f0;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#000000;
+}
+
+.field{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:16px 14px 8px;
+  border-radius:12px;
+  border:1.5px solid rgba(212,175,55,.45);
+  background:#ffffff;
+  font-size:16px;
+  color:#1e293b;
+  transition:.3s ease;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 15px rgba(212,175,55,.25);
+  outline:none;
+}
+
+.field textarea{resize:vertical}
+
+.field label{
+  position:absolute;
+  left:14px;
+  top:14px;
+  font-size:13px;
+  color:#64748b;
+  transition:.2s ease;
+  pointer-events:none;
+  background:#ffffff;
+  padding:0 6px;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label,
+.field select:focus + label,
+.field select:valid + label{
+  top:-9px;
+  font-size:11px;
+  color:var(--accent);
+}
+
+.row{display:flex;gap:20px}
+.row .field{flex:1}
+
+button{
+  width:100%;
+  padding:20px;
+  border:none;
+  border-radius:14px;
+  font-weight:600;
+  font-size:16px;
+  background:linear-gradient(135deg,#d4af37,#b9922e);
+  color:#111;
+  cursor:pointer;
+  box-shadow:0 15px 40px rgba(212,175,55,.35);
+  transition:.3s ease;
+  letter-spacing:.5px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+button:disabled{
+  opacity:.8;
+  cursor:not-allowed;
+}
+
+.spinner{
+  width:18px;
+  height:18px;
+  border:3px solid rgba(0,0,0,.2);
+  border-top:3px solid #111;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+  display:none;
+}
+
+button.loading .spinner{
+  display:inline-block;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+#thankYouMessage{
+  display:none;
+  text-align:center;
+  padding:60px 20px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:all .6s ease;
+}
+
+#thankYouMessage.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.success-check{
+  width:90px;
+  height:90px;
+  margin:0 auto 25px;
+  border-radius:50%;
+  border:3px solid var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 25px rgba(212,175,55,.4);
+}
+
+.success-check::after{
+  content:"✔";
+  font-size:40px;
+  color:var(--accent);
+}
+
+.footer{
+  text-align:center;
+  padding:40px 30px;
+  font-size:13px;
+  color:#94a3b8;
+  background:#0b0f19;
+  position:relative;
+}
+
+/* Premium Golden Separation Line */
+.footer::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  box-shadow:0 0 15px rgba(212,175,55,.5);
+}
+
+body.light{
+  background:linear-gradient(135deg,#f8fafc,#ffffff);
+  color:#0b0f19;
+}
+
+body.light .top-nav{
+  background:rgba(255,255,255,.92);
+  border-bottom:1px solid rgba(0,0,0,.08);
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+body.light .brand{
+  color:#b9922e;
+}
+
+body.light .hero{
+  background:linear-gradient(135deg,#ffffff,#f1f5f9);
+  color:#0b0f19;
+}
+
+body.light .footer{
+  background:#f8fafc;
+  color:#64748b;
+}
+
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:1.5px solid var(--accent);
+  color:var(--accent);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  transition:.3s ease;
+}
+
+.theme-toggle:hover{
+  background:var(--accent);
+  color:#111;
+}
+
+.toggle-icon{
+  display:inline-block;
+  transition:transform .6s cubic-bezier(.4,0,.2,1);
+}
+
+.theme-toggle.rotate .toggle-icon{
+  transform:rotate(360deg);
+}
+
+.theme-toggle:hover{
+  background:var(--accent);
+  color:#111;
+}
+
+body.light .theme-toggle{
+  border:1.5px solid #b9922e;
+  color:#b9922e;
+}
+
+body.light .theme-toggle:hover{
+  background:#b9922e;
+  color:#fff;
+}
+
+@media(max-width:768px){
+  .row{flex-direction:column}
+  .container{padding:35px}
+  .hero h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="aarna-county.html" class="nav-cta">← Back to Project</a>
+
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+    <span class="toggle-icon">🌙</span>
+  </button>
+</div>
+
+
+<section class="hero">
+  <h1>
+    AARNA COUNTY
+  </h1>
+  <h2>
+    Book Your Site Visit
+  </h2>
+  <p>Secure your preferred plot or villa today</p>
+</section>
+
+<div class="main-wrapper">
+<div class="container">
+  <h2>Schedule Your Visit</h2>
+
+  <form id="leadForm">
+
+    <div class="section-title">Personal Details</div>
+
+    <div class="field">
+      <input type="text" name="fullName" placeholder=" " required>
+      <label>Full Name *</label>
+    </div>
+
+    <div class="field">
+      <input type="tel" name="phone" placeholder=" " required pattern="^[+0-9 ]{6,20}$" maxlength="20">
+      <label>Mobile Number *</label>
+    </div>
+
+    <div class="field">
+      <input type="email" name="email" placeholder=" ">
+      <label>Email Address</label>
+    </div>
+
+    <div class="field">
+      <select name="occupation" id="occupationSelect" required>
+        <option value="" disabled selected></option>
+        <option>Business</option>
+        <option>Private Job</option>
+        <option>Government Job</option>
+        <option>Self Employed</option>
+        <option>Student</option>
+        <option>Teacher</option>
+        <option>Banker</option>
+        <option value="Other">Other</option>
+      </select>
+      <label>Occupation *</label>
+    </div>
+
+    <div class="field" id="otherOccupationBox" style="display:none;">
+      <input type="text" id="otherOccupationInput" placeholder=" ">
+      <label>Please Specify Occupation *</label>
+    </div>
+
+    <div class="field">
+      <textarea name="city" rows="3" placeholder=" " required></textarea>
+      <label>Address (Full) *</label>
+    </div>
+
+    <div class="section-title">Property Preference</div>
+
+    <div class="field">
+      <select name="budget" required>
+        <option value="" disabled selected></option>
+        <option>20 - 30 Lakhs</option>
+        <option>30 - 40 Lakhs</option>
+        <option>40 - 50 Lakhs</option>
+        <option>50 - 60 Lakhs</option>
+        <option>60 - 75 Lakhs</option>
+        <option>75 - 90 Lakhs</option>
+        <option>90 Lakhs - 1 Crore</option>
+        <option>1 Crore +</option>
+      </select>
+      <label>Budget Range *</label>
+    </div>
+
+    <div class="field">
+      <select name="propertyType" required>
+        <option value="" disabled selected></option>
+        <option>Residential Villa</option>
+        <option>Residential Plot</option>
+        <option>Commercial</option>
+      </select>
+      <label>Interested In *</label>
+    </div>
+
+    <div class="field">
+      <input type="number" name="areaGaj" placeholder=" " required>
+      <label>Required Area (Sq. Yd.) *</label>
+    </div>
+
+    <div class="section-title">Visit Schedule</div>
+
+    <div class="row">
+      <div class="field">
+        <input type="date" name="visitDate" placeholder=" " required>
+        <label>Preferred Visit Date *</label>
+      </div>
+      <div class="field">
+        <select name="visitTime" required>
+          <option value="" disabled selected></option>
+          <option>09:00 AM</option>
+          <option>09:30 AM</option>
+          <option>10:00 AM</option>
+          <option>10:30 AM</option>
+          <option>11:00 AM</option>
+          <option>11:30 AM</option>
+          <option>12:00 PM</option>
+          <option>12:30 PM</option>
+          <option>01:00 PM</option>
+          <option>01:30 PM</option>
+          <option>02:00 PM</option>
+          <option>02:30 PM</option>
+          <option>03:00 PM</option>
+          <option>03:30 PM</option>
+          <option>04:00 PM</option>
+          <option>04:30 PM</option>
+          <option>05:00 PM</option>
+          <option>05:30 PM</option>
+          <option>06:00 PM</option>
+        </select>
+        <label>Preferred Visit Time *</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <select name="source">
+        <option value="Website" selected>Website</option>
+        <option>Facebook Ad</option>
+        <option>Google Ad</option>
+        <option>Instagram</option>
+        <option>Referral</option>
+        <option>Walk-in</option>
+        <option>Other</option>
+      </select>
+      <label>Lead Source</label>
+    </div>
+
+    <div class="field">
+      <textarea name="message" rows="3" placeholder=" "></textarea>
+      <label>Message (Optional)</label>
+    </div>
+
+    <button type="submit" id="submitBtn">
+      <span id="btnText">Submit Your Site Visit Details</span>
+      <span class="spinner" id="spinner"></span>
+    </button>
+  </form>
+
+  <div id="thankYouMessage">
+    <div class="success-check"></div>
+    <h3 style="font-size:26px;font-weight:700;margin-bottom:18px;color:#0b0f19;letter-spacing:.5px;">
+      Welcome to Aarna County
+    </h3>
+    <p style="max-width:680px;margin:0 auto 24px;line-height:1.9;color:#1e293b;font-weight:500;font-size:16px;">
+      Thank you for scheduling your site visit with <strong>Aarna County</strong>.
+      We are delighted to assist you in discovering a thoughtfully planned,
+      premium residential community designed for modern families and long‑term value.
+      <br><br>
+      Our team will connect with you shortly to coordinate your visit.
+    </p>
+    <a href="aarna-county.html" style="display:inline-block;padding:16px 42px;border-radius:50px;background:linear-gradient(135deg,#d4af37,#b9922e);color:#111;font-weight:700;text-decoration:none;letter-spacing:.6px;box-shadow:0 12px 35px rgba(212,175,55,.35);transition:all .3s ease;">
+      Explore More About Aarna County
+    </a>
+  </div>
+
+</div>
+</div>
+
+<div class="footer">
+  <div style="max-width:1100px;margin:0 auto;line-height:1.9;text-align:center;">
+    <div style="font-weight:600;letter-spacing:.6px;margin-bottom:6px;">
+      © 2026 <strong>SAI INFRA</strong>. All Rights Reserved.
+    </div>
+    <div style="font-size:13px;opacity:.9;margin-bottom:10px;">
+      Aarna County | BDA Approved Residential Colony, Bareilly (UP)
+    </div>
+    <div style="font-size:13px;opacity:.85;border-top:1px solid rgba(212,175,55,.2);padding-top:12px;">
+      Website Design & Development by 
+      <strong style="color:var(--accent);font-weight:600;">Saksham Srivastav</strong>
+      | Contact: 
+      <a href="tel:+919529118484" style="color:var(--accent);text-decoration:none;font-weight:600;">
+        +91 9529118484
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycby6mNQR0Lb300hWKVM1rB4IJ9THq2xmjAAAJ_ozflyxkkfA6XvI1WrJc5zHoHnXHKrM7Q/exec";
+const form = document.getElementById("leadForm");
+const occupationSelect = document.getElementById("occupationSelect");
+const otherOccupationBox = document.getElementById("otherOccupationBox");
+const otherOccupationInput = document.getElementById("otherOccupationInput");
+const submitBtn = document.getElementById("submitBtn");
+const btnText = document.getElementById("btnText");
+const themeToggle = document.getElementById("themeToggle");
+const toggleIcon = document.querySelector(".toggle-icon");
+
+
+function applyTheme(theme){
+  if(theme === "light"){
+    document.body.classList.add("light");
+    if(toggleIcon) toggleIcon.textContent = "☀️";
+  } else {
+    document.body.classList.remove("light");
+    if(toggleIcon) toggleIcon.textContent = "🌙";
+  }
+}
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+applyTheme(savedTheme);
+
+if(themeToggle){
+  themeToggle.addEventListener("click",function(){
+    const newTheme = document.body.classList.contains("light") ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+
+    // Add smooth rotation
+    themeToggle.classList.add("rotate");
+    setTimeout(()=>{
+      themeToggle.classList.remove("rotate");
+    },600);
+
+    applyTheme(newTheme);
+  });
+}
+
+// ===== AUTO SCROLL TO NEXT FIELD ON DATA FILL =====
+const allFields = document.querySelectorAll('#leadForm input, #leadForm select, #leadForm textarea');
+
+allFields.forEach((field, index) => {
+  field.addEventListener('change', function(){
+    if(field.value && allFields[index + 1]){
+      allFields[index + 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  });
+
+  field.addEventListener('blur', function(){
+    if(field.value && allFields[index + 1]){
+      allFields[index + 1].scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+  });
+});
+
+occupationSelect.addEventListener("change", function(){
+  if(this.value === "Other"){
+    otherOccupationBox.style.display = "block";
+    otherOccupationInput.setAttribute("required","required");
+  } else {
+    otherOccupationBox.style.display = "none";
+    otherOccupationInput.removeAttribute("required");
+    otherOccupationInput.value = "";
+  }
+});
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.classList.add("loading");
+  btnText.textContent = "Submitting...";
+
+  const formData = new FormData(form);
+
+  if(occupationSelect.value === "Other"){
+    formData.set("occupation", otherOccupationInput.value);
+  }
+
+  fetch(scriptURL,{method:"POST",body:formData,mode:"no-cors"})
+  .then(function(){
+    const thankSection = document.getElementById("thankYouMessage");
+
+    form.style.opacity = "0";
+    form.style.transition = "all .5s ease";
+
+    setTimeout(function(){
+      form.style.display="none";
+      thankSection.style.display="block";
+
+      setTimeout(function(){
+        thankSection.classList.add("active");
+      },50);
+
+      setTimeout(function(){
+        thankSection.classList.remove("active");
+        thankSection.style.display="none";
+        form.reset();
+        form.style.display="block";
+        form.style.opacity="1";
+        submitBtn.disabled=false;
+        submitBtn.classList.remove("loading");
+        btnText.textContent="Submit Your Site Visit Details";
+      },5000);
+
+    },500);
+
+  })
+  .catch(function(){
+    submitBtn.disabled = false;
+    submitBtn.classList.remove("loading");
+    btnText.textContent = "Submit Your Site Visit Details";
+    alert("Submission failed. Please try again.");
+  });
+});
+</script>
+
+</body>
+</html>

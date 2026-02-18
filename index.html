@@ -30,21 +30,52 @@
 
     *{box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:background .3s,color .3s;}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:background .3s,color .3s;border:2px solid transparent;border-radius:25px;overflow-x:hidden;background-clip:padding-box;border-image:linear-gradient(90deg,#c9a227,#fff6b7,#c9a227,#e6c453,#c9a227) 1;animation:goldShine 6s linear infinite;box-shadow:0 0 40px rgba(201,162,39,.6) inset, 0 0 30px rgba(201,162,39,.5);} 
 
-    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;}
-    .nav-links{display:flex;gap:18px;align-items:center;}
+@keyframes goldShine{
+  0%{border-image-source:linear-gradient(90deg,#c9a227,#fff6b7,#c9a227);} 
+  50%{border-image-source:linear-gradient(270deg,#fff6b7,#c9a227,#e6c453);} 
+  100%{border-image-source:linear-gradient(90deg,#c9a227,#fff6b7,#c9a227);} 
+}
+
+    nav{position:sticky;top:0;z-index:1000;background:rgba(248,250,252,.95);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-bottom:3px solid transparent;background-clip:padding-box;border-image:linear-gradient(90deg,#c9a227,#e6c453,#c9a227) 1;box-shadow:0 0 15px rgba(201,162,39,.6);}
+    .nav-links{display:flex;gap:22px;align-items:center;}
+
+/* Mobile Navigation */
+.menu-toggle{display:none;font-size:26px;background:none;border:none;cursor:pointer;color:var(--primary);} 
+
+@media (max-width: 900px){
+  nav{padding:14px 20px;}
+  .menu-toggle{display:block;}
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--card);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+    gap:16px;
+    display:none;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+    border-bottom:3px solid var(--accent);
+  }
+  .nav-links.active{display:flex;}
+}
     .dropdown{position:relative;}
     .dropdown-menu{position:absolute;top:120%;left:0;background:var(--card);min-width:200px;border-radius:12px;box-shadow:0 15px 35px rgba(0,0,0,.12);padding:10px 0;display:none;z-index:999;}
     .dropdown-menu a{display:block;padding:10px 16px;font-weight:600;color:var(--primary);}
     .dropdown-menu a:hover{background:rgba(201,162,39,.08);}    
     .dropdown:hover .dropdown-menu{display:block;}
     [data-theme="dark"] nav{background:rgba(2,6,23,.85);}    
-    nav a{text-decoration:none;font-weight:600;color:var(--primary);} 
+    nav a{text-decoration:none;font-weight:600;color:var(--primary);padding:8px 18px;border-radius:30px;position:relative;transition:all .3s ease;border:2px solid transparent;}
+    
+    nav a:hover{border:2px solid var(--accent);background:rgba(201,162,39,.08);box-shadow:0 6px 18px rgba(201,162,39,.25);transform:translateY(-2px);} 
 
     .theme-toggle{cursor:pointer;border:none;background:transparent;font-size:18px;}
 
-    header{background:linear-gradient(135deg,#020617,#0f172a);color:#fff;text-align:center;padding:clamp(80px,12vw,120px) 20px clamp(60px,10vw,100px);}    
+    header{background:linear-gradient(135deg,#020617,#0f172a);color:#fff;text-align:center;padding:clamp(80px,12vw,120px) 20px clamp(60px,10vw,100px);border-radius:30px;margin:20px;border:2px solid var(--accent);box-shadow:0 0 25px rgba(201,162,39,.7);}    
     header h1{font-size:clamp(34px,6vw,48px);margin-bottom:8px;letter-spacing:2px;font-weight:900;}
     .tagline{font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#e5e7eb;opacity:.9;}
     header p{max-width:760px;margin:22px auto 0;color:#cbd5e1;font-size:17px;}
@@ -58,18 +89,20 @@
     .cta a.instagram{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);color:#fff;}    
 
     .container{max-width:1200px;margin:auto;padding:clamp(48px,8vw,80px) 16px;}
-    section{background:var(--card);margin-bottom:clamp(32px,6vw,48px);padding:clamp(28px,6vw,48px);border-radius:var(--radius);box-shadow:var(--shadow);}        
+    section{background:var(--card);margin:20px 0;padding:clamp(28px,6vw,48px);border-radius:30px;box-shadow:0 0 20px rgba(201,162,39,.5);border:2px solid var(--accent);}        
     h2{margin-top:0;font-size:clamp(24px,4vw,32px);color:var(--primary);}        
 
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:28px;}
-    .card{padding:32px;border-radius:18px;background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.08);}    
+    .card{padding:32px;border-radius:25px;background:var(--card);border:2px solid var(--accent);box-shadow:0 0 18px rgba(201,162,39,.6);transition:all .3s ease;} .card:hover{box-shadow:0 18px 38px rgba(201,162,39,.25);transform:translateY(-6px);}    
 
-    footer{background:#020617;color:#e5e7eb;text-align:center;padding:36px 20px;font-size:14px;}
+    footer{background:#020617;color:#e5e7eb;text-align:center;padding:36px 20px;font-size:14px;border-top:3px solid transparent;background-clip:padding-box;border-image:linear-gradient(90deg,#c9a227,#e6c453,#c9a227) 1;box-shadow:0 -5px 25px rgba(201,162,39,.6);}
+  .gold{color:var(--accent);font-weight:700;}
   </style>
 </head>
 <body>
 
 <nav aria-label="Primary navigation">
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
   <div class="nav-links">
     <a href="#home">Home</a>
     <div class="dropdown">
@@ -86,7 +119,7 @@
 </nav>
 
 <header id="home">
-  <h1>SAI INFRA</h1>
+  <h1><span class="gold">SAI INFRA</span></h1>
   <div class="tagline">Real Estate & Infrastructure Development Firm</div>
   <p>Delivering compliant, well-planned residential developments in Bareilly with a strong foundation of trust, transparency, and long-term value.</p>
 
@@ -116,7 +149,7 @@
         <span style="position:absolute;top:18px;right:18px;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:800;background:linear-gradient(135deg,#c9a227,#e6c453);color:#111827;box-shadow:0 6px 16px rgba(201,162,39,.35);">BDA APPROVED</span>
 
         <h3 style="margin-top:0;font-size:22px;">Aarna County</h3>
-        <p style="color:var(--muted);margin:12px 0 18px;">A BDA-approved residential colony in Bareilly, developed by SAI INFRA with a focus on planned layouts, infrastructure readiness, and long-term livability.</p>
+        <p style="color:var(--muted);margin:12px 0 18px;">A BDA-approved residential colony in Bareilly, developed by <span class="gold">SAI INFRA</span> with a focus on planned layouts, infrastructure readiness, and long-term livability.</p>
 
         <ul style="padding-left:18px;color:var(--muted);margin-bottom:22px;">
           <li>Planned residential plots</li>
@@ -136,32 +169,32 @@
 </section>
 
 <section id="about">
-  <h2>About SAI INFRA</h2>
+  <h2>About <span class="gold">SAI INFRA</span></h2>
   <p style="color:var(--muted);max-width:950px;">
-    SAI INFRA is a professionally managed real estate and infrastructure development firm based in Bareilly, Uttar Pradesh, founded and led by <strong>Mr. Ankit Johri</strong>. Under his leadership, the company has established a strong reputation for delivering compliant, well-planned, and value-driven residential developments with a clear focus on transparency, structured execution, and long-term customer trust.
+    <span class="gold">SAI INFRA</span> is a professionally managed real estate and infrastructure development firm based in Bareilly, Uttar Pradesh, founded and led by <strong><span class="gold">Mr. Ankit Johri</span></strong>. Under his leadership, the company has established a strong reputation for delivering compliant, well-planned, and value-driven residential developments with a clear focus on transparency, structured execution, and long-term customer trust.
   </p>
 
   <p style="color:var(--muted);max-width:950px;margin-top:18px;">
-    With solid on-ground expertise in land development, statutory approvals, and infrastructure planning, <strong>Mr. Ankit Johri</strong> has guided SAI INFRA with a forward-looking vision centered on legal compliance, quality standards, and sustainable growth. The organization follows a systematic approach at every stage — from land identification and layout planning to development and final delivery.
+    With solid on-ground expertise in land development, statutory approvals, and infrastructure planning, <strong><span class="gold">Mr. Ankit Johri</span></strong> has guided <span class="gold">SAI INFRA</span> with a forward-looking vision centered on legal compliance, quality standards, and sustainable growth. The organization follows a systematic approach at every stage — from land identification and layout planning to development and final delivery.
   </p>
 
   <p style="color:var(--muted);max-width:950px;margin-top:18px;">
-    Today, SAI INFRA continues to create thoughtfully designed residential communities that offer peace of mind, strategic location advantages, and strong long-term investment potential. Professionalism, integrity, and commitment to excellence remain the core pillars of the company’s foundation.
+    Today, <span class="gold">SAI INFRA</span> continues to create thoughtfully designed residential communities that offer peace of mind, strategic location advantages, and strong long-term investment potential. Professionalism, integrity, and commitment to excellence remain the core pillars of the company’s foundation.
   </p>
   <div style="margin-top:32px;padding:28px;border-radius:16px;background:linear-gradient(135deg,rgba(201,162,39,.08),rgba(201,162,39,.03));border-left:4px solid var(--accent);">
     <h3 style="margin-top:0;color:var(--primary);">Vision from the Founder</h3>
     <p style="margin-top:14px;color:var(--text);font-style:italic;max-width:900px;">
-      "Our vision is to develop well-planned, legally compliant, and future-ready residential communities that provide not just property, but long-term security and peace of mind to every family. At SAI INFRA, we are committed to building trust through transparency, structured development, and uncompromising quality standards."
+      "Our vision is to develop well-planned, legally compliant, and future-ready residential communities that provide not just property, but long-term security and peace of mind to every family. At <span class="gold">SAI INFRA</span>, we are committed to building trust through transparency, structured development, and uncompromising quality standards."
     </p>
     <p style="margin-top:16px;font-weight:700;color:var(--primary);">
-      — <strong>Mr. Ankit Johri</strong>
+      — <strong><span class="gold">Mr. Ankit Johri</span></strong>
     </p>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact Us</h2>
-  <p style="color:var(--muted);max-width:720px;">For project enquiries, site visits, partnerships, or any information related to our developments, please connect with <strong>SAI INFRA</strong> through the details below. Our team will be happy to assist you.</p>
+  <p style="color:var(--muted);max-width:720px;">For project enquiries, site visits, partnerships, or any information related to our developments, please connect with <strong><span class="gold">SAI INFRA</span></strong> through the details below. Our team will be happy to assist you.</p>
 
   <div class="grid" style="margin-top:32px;">
     <div class="card">
@@ -198,7 +231,7 @@
 <footer>
   <div style="max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
     <div>
-      © 2026 <strong>SAI INFRA</strong>. All Rights Reserved.
+      © 2026 <strong><span class="gold">SAI INFRA</span></strong>. All Rights Reserved.
     </div>
     <div style="font-size:13px;opacity:.85;">
       Real Estate & Infrastructure Development Firm – Bareilly (UP)
@@ -215,11 +248,16 @@
   const toggleBtn = document.getElementById('themeToggle');
   const root = document.documentElement;
 
+  // Default open in light theme
   const savedTheme = localStorage.getItem('theme');
   if(savedTheme){
     root.setAttribute('data-theme', savedTheme);
-    toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+  } else {
+    root.setAttribute('data-theme','light');
+    localStorage.setItem('theme','light');
   }
+
+  toggleBtn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
 
   toggleBtn.addEventListener('click', () => {
     const isDark = root.getAttribute('data-theme') === 'dark';
@@ -227,6 +265,17 @@
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
     toggleBtn.textContent = isDark ? '🌙' : '☀️';
   });
+  
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if(menuToggle){
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
 </script>
 
 </body>

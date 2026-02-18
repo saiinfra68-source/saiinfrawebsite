@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
   <title>Aarna County | BDA Approved Residential Colony – Bareilly | SAI INFRA</title>
   <meta name="description" content="Aarna County is a BDA Approved residential colony in Bareilly developed by SAI INFRA. Enquire via Call or WhatsApp and get complete project details." />
 
@@ -24,6 +24,12 @@
       height:auto;
       display:block;
     }
+
+    iframe{
+      width:100%;
+      display:block;
+      border:0;
+    }
     body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
 
     
@@ -33,39 +39,26 @@
       position:sticky;
       top:0;
       z-index:9999;
-      width:96%;
-      margin:12px auto 0 auto;
-      background:rgba(255,255,255,0.65);
-      backdrop-filter:blur(16px) saturate(180%);
-      -webkit-backdrop-filter:blur(16px) saturate(180%);
-      padding:14px 28px;
+      width:100%;
+      margin:0;
+      background:#ffffff;
+      padding:18px 32px; /* slightly thicker */
       display:flex;
       align-items:center;
       justify-content:space-between;
-      border:1px solid rgba(255,255,255,.3);
-      border-radius:18px;
-      box-shadow:0 8px 30px rgba(0,0,0,.08);
-      transition:all .35s ease;
-      animation:slideDown .6s ease forwards;
+      border-bottom:3px solid var(--accent); /* gold branding line */
+      border-radius:0;
+      box-shadow:none;
     }
 
-    nav.scrolled{
-      padding:8px 28px;
-      box-shadow:0 10px 35px rgba(0,0,0,.15);
-      transform:translateY(-2px);
-    }
+    
+    
 
-    nav.scrolled .nav-links a{
-      font-size:14px;
-    }
-
-    nav.scrolled .theme-toggle{
-      font-size:18px;
-    } 
+     
     body.dark nav{
-      background:rgba(15,23,42,0.65);
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 8px 30px rgba(0,0,0,.45);
+      background:#0f172a;
+      border-bottom:3px solid var(--accent);
+      box-shadow:none;
     }
     
     .nav-links{
@@ -74,26 +67,21 @@
       align-items:center;
       flex-wrap:wrap;
     } 
-    .nav-links a{position:relative;padding:6px 4px;transition:color .2s ease;} 
-    .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:width .25s ease;} 
-    .nav-links a:hover::after{width:100%;} 
-    .nav-links a.active::after{width:100%;}
-    .theme-toggle{
+    .nav-links a{position:relative;padding:6px 4px;}  
+        .theme-toggle{
       cursor:pointer;
       border:none;
       background:transparent;
       font-size:20px;
       font-weight:700;
-      transition:transform .2s ease;
     }
-    .theme-toggle:hover{transform:scale(1.15) rotate(10deg);}
     nav a{text-decoration:none;font-weight:600;color:var(--primary);} 
     body.dark nav a{color:#e5e7eb;}
 
-    header{background:linear-gradient(135deg,#020617,#0f172a);color:#fff;text-align:center;padding:clamp(80px,12vw,120px) 20px clamp(60px,10vw,100px);}
-    header h1{font-size:clamp(32px,6vw,44px);margin-bottom:6px;letter-spacing:1.5px;font-weight:900;}
-    .badge{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;font-weight:800;font-size:12px;letter-spacing:.6px;}
-    header p{max-width:760px;margin:18px auto 0;color:#cbd5e1;font-size:17px;}
+    header{background:linear-gradient(135deg,#020617,#0f172a);color:#fff;text-align:center;padding:clamp(80px,12vw,120px) 20px clamp(60px,10vw,100px);border-bottom:4px solid var(--accent);box-shadow:0 20px 60px rgba(201,162,39,.15);} 
+    header h1{font-size:clamp(32px,6vw,44px);margin-bottom:6px;letter-spacing:1.5px;font-weight:900;} 
+    .badge{display:inline-block;margin-top:10px;padding:6px 14px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;font-weight:800;font-size:12px;letter-spacing:.6px;} 
+    header p{max-width:760px;margin:18px auto 0;color:#cbd5e1;font-size:17px;} 
 
     .cta{
       margin-top:28px;
@@ -112,7 +100,32 @@
       }
     }
 
-    
+    @media (max-width: 768px){
+      nav{
+        padding:12px 16px;
+      }
+
+      .nav-links{
+        gap:16px;
+      }
+
+      header{
+        padding:70px 16px 60px 16px;
+      }
+
+      header h1{
+        font-size:clamp(26px,7vw,34px);
+      }
+
+      section{
+        padding:24px 18px;
+      }
+
+      .cta a{
+        width:100%;
+        justify-content:center;
+      }
+    }
 
     @media (max-width: 768px){
       nav{
@@ -188,10 +201,27 @@
       margin:auto;
       padding:clamp(32px,6vw,80px) 16px;
     }
-    section{background:var(--card);margin-bottom:clamp(32px,6vw,48px);padding:clamp(28px,6vw,48px);border-radius:var(--radius);box-shadow:var(--shadow);}        
+    section{background:var(--card);margin-bottom:clamp(32px,6vw,48px);padding:clamp(28px,6vw,48px);border-radius:var(--radius);box-shadow:var(--shadow);} 
+
+/* Premium Golden Section Borders */
+#highlights,
+#brochure,
+#location,
+#vision,
+#book-visit{
+  border:2px solid var(--accent);
+  box-shadow:0 25px 60px rgba(201,162,39,.08);
+}
+
+body.dark #highlights,
+body.dark #brochure,
+body.dark #location,
+body.dark #vision{
+  border:2px solid var(--accent);
+}        
     h2{margin-top:0;font-size:30px;color:var(--primary);}        
 
-    footer{background:#020617;color:#e5e7eb;text-align:center;padding:34px 20px;font-size:14px;}
+    footer{background:#020617;color:#e5e7eb;text-align:center;padding:34px 20px;font-size:14px;border-top:3px solid var(--accent);}
     body.dark section{background:#0f172a;color:#e5e7eb;}
     body.dark .container{color:#e5e7eb;}
     body.dark h2{color:#e5e7eb;}
@@ -206,16 +236,7 @@
   
 
     /* Smooth Slide Animation */
-    @keyframes slideDown{
-      from{
-        opacity:0;
-        transform:translateY(-40px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+    
 
     html{
       scroll-behavior:smooth;
@@ -252,6 +273,119 @@
       from{ box-shadow:0 0 0 rgba(201,162,39,0); }
       to{ box-shadow:0 0 18px rgba(201,162,39,.35); }
     }
+
+    /* Premium Highlight Cards */
+.highlight-grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+
+.highlight-card{
+  background:#ffffff;
+  padding:24px;
+  border-radius:18px;
+  border:2px solid rgba(201,162,39,.45); /* premium golden border */
+  box-shadow:0 15px 35px rgba(15,23,42,.06);
+  transition:all .3s ease;
+  text-align:left;
+}
+
+.highlight-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(15,23,42,.12);
+  border-color:#c9a227; /* stronger gold on hover */
+}
+
+.highlight-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(15,23,42,.12);
+  border-color:rgba(201,162,39,.35);
+}
+
+.highlight-icon{
+  font-size:26px;
+  margin-bottom:12px;
+}
+
+.highlight-title{
+  font-weight:800;
+  font-size:16px;
+  margin-bottom:6px;
+  color:var(--primary);
+}
+
+.highlight-desc{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* Professional Location Cards */
+.location-grid{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:18px;
+}
+
+.location-card{
+  padding:18px;
+  border-radius:16px;
+  background:#ffffff;
+  border:2px solid rgba(201,162,39,.45); /* premium golden border */
+  box-shadow:0 10px 25px rgba(15,23,42,.05);
+  transition:all .25s ease;
+}
+
+.location-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(15,23,42,.12);
+  border-color:#c9a227; /* stronger gold on hover */
+}
+
+.location-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(15,23,42,.12);
+  border-color:rgba(201,162,39,.35);
+}
+
+.location-icon{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.location-title{
+  font-weight:700;
+  font-size:15px;
+  margin-bottom:4px;
+  color:var(--primary);
+}
+
+.location-distance{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Map Wrapper with Overlay Label */
+.map-wrapper{
+  position:relative;
+  margin-top:28px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(15,23,42,.15);
+  border:2px solid rgba(201,162,39,.25);
+}
+
+
+.map-label span{
+  background:linear-gradient(135deg,#c9a227,#e6c453);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Cleaned stray animation fragments */
+      
 
     /* Button Smooth Hover Enhancement */
     .cta a, button{
@@ -296,7 +430,8 @@
     <a href="#overview" class="active">Overview</a>
     <a href="#highlights">Highlights</a>
     <a href="#brochure">Brochure</a>
-    <a href="#contact">Enquiry</a>
+    
+    <a href="bookyoursitevisit.html">Book Your Site Visit</a>
   </div>
   <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
 </nav>
@@ -322,18 +457,60 @@
 
 <div class="container">
 
-
-
 <section id="highlights" class="reveal">
   <h2>Project Highlights</h2>
-  <ul>
-    <li>BDA Approved Residential Colony</li>
-    <li>Two Gated Entry & Exit Points for Enhanced Security</li>
-    <li>9 Meter Wide Internal Roads for Smooth Connectivity</li>
-    <li>Planned layout and internal roads</li>
-    <li>Peaceful residential environment</li>
-    <li>Developed by SAI INFRA</li>
-  </ul>
+
+  <div class="highlight-grid">
+
+    <div class="highlight-card">
+      <div class="highlight-icon">✅</div>
+      <div class="highlight-title">BDA Approved & Legally Compliant</div>
+      <div class="highlight-desc">Fully approved residential development ensuring transparency, legal clarity, and long-term investment security.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">📍</div>
+      <div class="highlight-title">Prime Mid-City Connectivity</div>
+      <div class="highlight-desc">Strategically located at Gandhi Puram, Mini-Bypass with seamless access to schools, hospitals, railway station and city market.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🏡</div>
+      <div class="highlight-title">Premium Duplex Villas</div>
+      <div class="highlight-desc">Thoughtfully designed 2-level villas with spacious layouts, dedicated parking and optimized daylight & ventilation.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🏗️</div>
+      <div class="highlight-title">Seismic-Resistant RCC Structure</div>
+      <div class="highlight-desc">Earthquake-resistant construction compliant with Seismic Zone III standards for structural safety and durability.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🛡️</div>
+      <div class="highlight-title">Gated Community with 24×7 Security</div>
+      <div class="highlight-desc">Controlled entry points, CCTV surveillance and round-the-clock security for complete peace of mind.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">⚡</div>
+      <div class="highlight-title">Dedicated Power Infrastructure</div>
+      <div class="highlight-desc">Independent transformer setup ensuring reliable and uninterrupted electricity supply.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">🔥</div>
+      <div class="highlight-title">Integrated Utility Network</div>
+      <div class="highlight-desc">Gas pipeline connectivity and Nagar Nigam water supply designed for everyday convenience.</div>
+    </div>
+
+    <div class="highlight-card">
+      <div class="highlight-icon">✨</div>
+      <div class="highlight-title">Premium Interior Specifications</div>
+      <div class="highlight-desc">Granite staircase, premium sanitary fittings and modular kitchen provisions.</div>
+    </div>
+
+  </div>
 </section>
 
 <section id="brochure" class="reveal">
@@ -348,54 +525,71 @@
   </div>
 </section>
 
-<section id="location">
+<section id="location" class="reveal">
   <h2>Site Location</h2>
-  <p style="color:var(--muted);max-width:720px;">Aarna County is strategically located at <strong>Gandhi Puram, Izatnagar, Bareilly, Uttar Pradesh – 243122</strong>, offering convenient access to key city landmarks.</p>
+  <p style="color:var(--muted);max-width:720px;">Aarna County is strategically located at <strong>Gandhi Puram, Mini-Bypass, Izatnagar, Bareilly, Uttar Pradesh – 243122</strong>, offering convenient access to key city landmarks.</p>
 
-  <div style="margin-top:26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;">
-    <div style="padding:18px;border-radius:14px;background:rgba(201,162,39,.06);display:flex;align-items:flex-start;gap:12px;">
-      <div style="font-size:22px;">🚆</div>
-      <div>
-        <strong>Izatnagar Railway Station</strong><br>
-        <span style="color:var(--muted);font-size:14px;">Approx. 2.5 km</span>
-      </div>
+      <!-- Professional Location Highlights -->
+  <div class="location-grid">
+
+        <div class="location-card">
+      <div class="location-icon">🏫</div>
+      <div class="location-title">Guru School</div>
+      <div class="location-distance">0.5 km</div>
     </div>
 
-    <div style="padding:18px;border-radius:14px;background:rgba(201,162,39,.06);display:flex;align-items:flex-start;gap:12px;">
-      <div style="font-size:22px;">✈️</div>
-      <div>
-        <strong>Bareilly Airport</strong><br>
-        <span style="color:var(--muted);font-size:14px;">Approx. 6 km</span>
-      </div>
+    <div class="location-card">
+      <div class="location-icon">🏥</div>
+      <div class="location-title">Hospitals</div>
+      <div class="location-distance">0.5 km</div>
     </div>
 
-    <div style="padding:18px;border-radius:14px;background:rgba(201,162,39,.06);display:flex;align-items:flex-start;gap:12px;">
-      <div style="font-size:22px;">🏬</div>
-      <div>
-        <strong>Main City Market</strong><br>
-        <span style="color:var(--muted);font-size:14px;">Approx. 5 km</span>
-      </div>
+    <div class="location-card">
+      <div class="location-icon">⛽</div>
+      <div class="location-title">Petrol Pump</div>
+      <div class="location-distance">0.5 km</div>
     </div>
 
-    <div style="padding:18px;border-radius:14px;background:rgba(201,162,39,.06);display:flex;align-items:flex-start;gap:12px;">
-      <div style="font-size:22px;">🏫</div>
-      <div>
-        <strong>Schools & Daily Amenities</strong><br>
-        <span style="color:var(--muted);font-size:14px;">Nearby</span>
-      </div>
+    <div class="location-card">
+      <div class="location-icon">🏫</div>
+      <div class="location-title">Hartmann College</div>
+      <div class="location-distance">1.0 km</div>
     </div>
+
+    <div class="location-card">
+      <div class="location-icon">🚌</div>
+      <div class="location-title">Upcoming Roadways</div>
+      <div class="location-distance">1.5 km</div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-icon">🚆</div>
+      <div class="location-title">Izzatnagar Railway Station</div>
+      <div class="location-distance">2.0 km</div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-icon">🏬</div>
+      <div class="location-title">KutubKhana</div>
+      <div class="location-distance">4.5 km</div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-icon">✈️</div>
+      <div class="location-title">Bareilly Airport</div>
+      <div class="location-distance">11.0 km</div>
+    </div>
+
   </div>
 
-  <div style="margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;">
-    <a href="https://www.google.com/maps/place/AARNA+COUNTY/@28.3830895,79.4038916,19z/data=!3m1!4b1!4m6!3m5!1s0x39a00750d9cc8e93:0xa920f1ce175daace!8m2!3d28.3830895!4d79.4045353!16s%2Fg%2F11k3s1wkj6" target="_blank" rel="noopener noreferrer" class="primary" style="text-decoration:none;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;font-weight:700;">📍 View on Google Maps</a>
-  </div>
-
-  <div style="margin-top:28px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);">
-    <iframe
+  <!-- Enhanced Map -->
+  <div class="map-wrapper">
+        <iframe
+      id="siteMap"
       allowfullscreen
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3360.4930191847066!2d79.4017532!3d28.3834875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a00750d9cc8e93:0xa920f1ce175daace!2sAARNA%20COUNTY!5e0!3m2!1sen!2sin!4v1717480000000"
+      src="https://www.google.com/maps?q=Aarna+County,+Gandhi+Puram,+Izatnagar,+Bareilly&z=16&output=embed"
       width="100%"
-      height="380"
+      height="350"
       style="border:0;"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
@@ -422,43 +616,21 @@
   </div>
 </section>
 
-<section id="contact" class="reveal">
-  <h2>Enquiry</h2>
-  <p style="color:var(--muted);max-width:720px;">Please fill in the enquiry form below and our team from <strong>SAI INFRA</strong> will contact you shortly. You may also reach us directly via phone or WhatsApp.</p>
+<!-- Book Site Visit CTA Section -->
+<section id="book-visit" class="reveal" style="text-align:center;">
+  <div style="max-width:800px;margin:auto;">
+    
 
-  <form onsubmit="handleEnquiry(event)" style="max-width:720px;margin-top:28px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;">
-      <div>
-        <label>Full Name</label><br>
-        <input type="text" id="name" required placeholder="Your full name" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;">
-      </div>
-      <div>
-        <label>Mobile Number</label><br>
-        <input type="tel" id="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;">
-      </div>
-    </div>
+    <h2 style="margin-bottom:12px;">Schedule Your Personal Site Visit</h2>
+    <p style="color:var(--muted);max-width:600px;margin:0 auto 28px;">
+      Experience Aarna County firsthand. Book a guided site visit with our team and explore premium duplex villas, connectivity advantages, and infrastructure planning.
+    </p>
 
-    <div style="margin-top:18px;">
-      <label>Email Address</label><br>
-      <input type="email" id="email" placeholder="your@email.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;">
-    </div>
-
-    <div style="margin-top:18px;">
-      <label>Message</label><br>
-      <textarea id="message" rows="4" placeholder="I am interested in Aarna County…" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;"></textarea>
-    </div>
-
-    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;">
-      <button type="submit" style="padding:14px 32px;border-radius:999px;border:none;cursor:pointer;font-weight:800;background:linear-gradient(135deg,var(--accent),#e6c453);">Submit Enquiry</button>
-      <a href="https://wa.me/919520954467" target="_blank" rel="noopener noreferrer" style="padding:14px 28px;border-radius:999px;font-weight:700;text-decoration:none;background:linear-gradient(135deg,#1e293b,#0f172a);color:#fff;">💬 WhatsApp</a>
-    </div>
-  </form>
-
-  <p style="margin-top:24px;color:var(--muted);font-size:14px;">Or contact us directly:<br>
-    <strong>Phone:</strong> 9520954467 &nbsp; | &nbsp; <strong>Email:</strong> marketing@sai-infra.in
-  </p>
+    <a href="bookyoursitevisit.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:999px;font-weight:800;text-decoration:none;background:linear-gradient(135deg,var(--accent),#e6c453);color:#111827;box-shadow:0 15px 35px rgba(201,162,39,.35);transition:all .3s ease;">
+      📅 Book Your Site Visit
+    </a>
+  </div>
 </section>
-
 
 </div>
 
@@ -478,44 +650,15 @@
     <a href="https://www.instagram.com/aarna_colony?igsh=MXg0MjBnZjYzM3g5dw==" target="_blank" rel="noopener noreferrer" class="social-btn social-ig">📸 Instagram</a>
   </div>
 
-  <div style="margin-top:22px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px;font-size:13px;opacity:.9;">
+  <div style="margin-top:22px;padding-top:14px;font-size:13px;opacity:.9;">
     Website Developed By <strong>Saksham Srivastav</strong> | Contact: <a href="tel:+919528118484" style="color:#e5e7eb;text-decoration:none;font-weight:600;">+91&nbsp;9528118484</a>
   </div>
 </footer>
 
 <script>
-function handleEnquiry(e){
-  e.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  const subject = "Enquiry for Aarna County – From " + name;
-
-  const body = `Dear SAI INFRA Team,%0D%0A%0D%0A` +
-               `I am interested in Aarna County and would like to request further details regarding the project.%0D%0A%0D%0A` +
-               `My Contact Details are as follows:%0D%0A` +
-               `-----------------------------------------%0D%0A` +
-               `Full Name     : ${name}%0D%0A` +
-               `Mobile Number : ${phone}%0D%0A` +
-               `Email Address : ${email}%0D%0A` +
-               `-----------------------------------------%0D%0A%0D%0A` +
-               `Message:%0D%0A${message}%0D%0A%0D%0A` +
-               `Kindly contact me at your earliest convenience.%0D%0A%0D%0A` +
-               `Thanking You,%0D%0A` +
-               `${name}`;
-
-  window.location.href = `mailto:marketing@sai-infra.in?subject=${encodeURIComponent(subject)}&body=${body}`;
-}
-</script>
-
-<script>
 // Dark / Light Toggle (Professional & Stable)
 document.addEventListener('DOMContentLoaded', function(){
   const toggleBtn = document.getElementById('themeToggle');
-  const navbar = document.querySelector('nav');
   if(!toggleBtn) return;
 
   function applyTheme(theme){
@@ -528,11 +671,14 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }
 
+  // Force Light Theme as Default
   const savedTheme = localStorage.getItem('theme');
+
   if(savedTheme){
     applyTheme(savedTheme);
-  } else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-    applyTheme('dark');
+  } else {
+    applyTheme('light');
+    localStorage.setItem('theme','light');
   }
 
   toggleBtn.addEventListener('click', function(){
@@ -542,24 +688,15 @@ document.addEventListener('DOMContentLoaded', function(){
     applyTheme(newTheme);
   });
 
-    // Shrink effect on scroll
-  window.addEventListener('scroll', function(){
-    if(window.scrollY > 50){
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
   // Scroll Reveal Activation
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
         entry.target.classList.add('active');
       }
     });
-  }, { threshold:0.15 });
+  }, { threshold: 0.15 });
 
   reveals.forEach(section => observer.observe(section));
 });
