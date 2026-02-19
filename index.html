@@ -6,8 +6,17 @@
   <title>SAI INFRA | Real Estate & Infrastructure Development Firm – Bareilly</title>
   <meta name="description" content="SAI INFRA is a trusted real estate and infrastructure development firm in Bareilly, delivering compliant residential projects including Aarna County (BDA Approved)." />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="SAIINFRA.png">
+  <!-- Favicon for all devices -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0b2a4a">
 
   <style>
     :root{
@@ -280,6 +289,18 @@
   }
 
 </script>
+
+<!-- Service Worker Register -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+</script>
+
+<!-- Install App Popup -->
+<script src="install-popup.js"></script>
 
 </body>
 </html>
