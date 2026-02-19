@@ -10,8 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0b2a4a">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -394,28 +393,7 @@ body.light .theme-toggle:hover{
   .hero h1{font-size:28px}
 }
 
-/* Floating Install Button */
-.install-btn{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:linear-gradient(135deg,#d4af37,#b9922e);
-  color:#111;
-  border:none;
-  padding:14px 22px;
-  border-radius:50px;
-  font-weight:700;
-  box-shadow:0 10px 30px rgba(212,175,55,.45);
-  cursor:pointer;
-  display:none;
-  z-index:2000;
-  transition:.3s ease;
-}
 
-.install-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(212,175,55,.6);
-}
 
   .container{padding:35px}
   .hero h1{font-size:28px}
@@ -601,8 +579,7 @@ body.light .theme-toggle:hover{
 </div>
 </div>
 
-<!-- Floating Install App Button -->
-<button id="installBtn" class="install-btn">📲 Install App</button>
+
 
 <div class="footer">
   <div style="max-width:1100px;margin:0 auto;line-height:1.9;text-align:center;">
@@ -633,27 +610,7 @@ const submitBtn = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const themeToggle = document.getElementById("themeToggle");
 const toggleIcon = document.querySelector(".toggle-icon");
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if(installBtn){
-    installBtn.style.display = 'block';
-  }
-});
-
-if(installBtn){
-  installBtn.addEventListener('click', async () => {
-    if(deferredPrompt){
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    }
-  });
-}
 (".toggle-icon");
 
 
@@ -772,17 +729,7 @@ form.addEventListener("submit", function(e){
 
 
 
-<!-- Service Worker Register -->
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/service-worker.js');
-  });
-}
-</script>
 
-<!-- Install App Popup -->
-<script src="install-popup.js"></script>
 
 </body>
 </html>
