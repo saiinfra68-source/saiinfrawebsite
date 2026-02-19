@@ -11,6 +11,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180x180.png">
 
+<!-- PWA Manifest -->
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0b2a4a">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -392,12 +396,6 @@ body.light .theme-toggle:hover{
   .container{padding:35px}
   .hero h1{font-size:28px}
 }
-
-
-
-  .container{padding:35px}
-  .hero h1{font-size:28px}
-}
 </style>
 </head>
 <body>
@@ -609,7 +607,7 @@ const otherOccupationInput = document.getElementById("otherOccupationInput");
 const submitBtn = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const themeToggle = document.getElementById("themeToggle");
-const toggleIcon = document.querySelector(".toggle-icon");
+const toggleIcon = document.querySelector
 
 (".toggle-icon");
 
@@ -730,6 +728,20 @@ form.addEventListener("submit", function(e){
 
 
 
+
+
+
+<!-- Service Worker Register -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.js');
+  });
+}
+</script>
+
+<!-- Install App Popup -->
+<script src="install-popup.js"></script>
 
 </body>
 </html>
