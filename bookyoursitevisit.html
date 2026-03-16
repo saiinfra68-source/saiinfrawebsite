@@ -13,6 +13,9 @@
 
 <!-- PWA Manifest -->
 <link rel="manifest" href="site.webmanifest">
+
+<!-- Performance: preload hero image -->
+<link rel="preload" as="image" href="hero.jpg">
 <meta name="theme-color" content="#0b2a4a">
 
 
@@ -101,40 +104,102 @@ body::before{
 .hero{
   position:relative;
   text-align:center;
-  padding:110px 20px 90px;
-  background:linear-gradient(135deg,#0b0f19,#111827 40%,#0f172a);
+  padding:clamp(80px,12vw,140px) 20px;
+  background-image:url('hero.jpg');
+  background-size:cover;
+  background-position:center 35%;
+  background-repeat:no-repeat;
+  min-height:clamp(420px,75vh,900px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   color:#ffffff;
   border-top:2px solid var(--accent);
   border-bottom:2px solid var(--accent);
   box-shadow:0 0 40px rgba(212,175,55,.15);
 }
 
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+/* Hero fade-in animation */
+@keyframes heroFadeUp{
+  from{opacity:0; transform:translateY(30px);} 
+  to{opacity:1; transform:translateY(0);} 
+}
+
+.hero h1,
+.hero h2,
+.hero-badges,
+.hero p{
+  opacity:0;
+  animation:heroFadeUp .9s ease forwards;
+}
+
+.hero h1{animation-delay:.15s}
+.hero h2{animation-delay:.3s}
+.hero-badges{animation-delay:.45s}
+.hero p{animation-delay:.6s}
+
+.hero > *{
+  position:relative;
+  z-index:2;
+}
+
 .hero h1{
-  font-size:20px;
+  font-size:22px;
   letter-spacing:4px;
-  font-weight:600;
+  font-weight:800; /* thicker */
   margin-bottom:20px;
   color:var(--accent);
+  text-shadow:0 4px 18px rgba(212,175,55,.45); /* brighter gold */
 }
 
 .hero h2{
-  font-size:42px;
-  font-weight:700;
+  font-size:44px;
+  font-weight:900; /* bold professional headline */
   letter-spacing:2px;
   margin-bottom:18px;
-  background:linear-gradient(135deg,#d4af37,#b9922e);
+  background:linear-gradient(135deg,#d4af37,#f5d76e);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 8px 25px rgba(212,175,55,.25);
+  text-shadow:0 10px 35px rgba(212,175,55,.35);
 }
 
 .hero p{
   margin-top:18px;
-  font-size:16px;
-  color:var(--accent);
-  font-weight:600;
-  letter-spacing:.5px;
-  text-shadow:0 4px 15px rgba(212,175,55,.25);
+  font-size:17px;
+  color:#f5d76e;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-shadow:0 6px 20px rgba(212,175,55,.35);
+}
+
+/* Hero Trust Badges */
+.hero-badges{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:16px;
+}
+
+.hero-badges span{
+  padding:8px 16px;
+  border-radius:40px;
+  font-size:13px;
+  font-weight:700;
+  background:linear-gradient(135deg,#d4af37,#f5d76e); /* golden background */
+  border:1px solid rgba(212,175,55,.6);
+  color:#111; /* dark text for contrast */
+  backdrop-filter:blur(6px);
+  box-shadow:0 8px 22px rgba(212,175,55,.45);
 }
 
 .main-wrapper{
@@ -340,8 +405,11 @@ body.light .brand{
 }
 
 body.light .hero{
-  background:linear-gradient(135deg,#ffffff,#f1f5f9);
-  color:#0b0f19;
+  background-image:url('hero.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  color:#ffffff;
 }
 
 body.light .footer{
@@ -393,10 +461,25 @@ body.light .theme-toggle:hover{
   color:#fff;
 }
 
+@media(max-width:1024px){
+  .hero{
+    background-position:center 30%; /* tablet focal adjustment */
+  }
+}
+
 @media(max-width:768px){
   .row{flex-direction:column}
   .container{padding:35px}
-  .hero h1{font-size:28px}
+
+  /* mobile hero adjustments */
+  .hero{
+    min-height:65vh;
+    background-position:center 25%; /* mobile focal adjustment so subject stays visible */
+    padding:80px 18px;
+  }
+
+  .hero h1{font-size:22px}
+  .hero h2{font-size:30px}
 }
 </style>
 </head>
@@ -418,6 +501,12 @@ body.light .theme-toggle:hover{
   <h2>
     Book Your Site Visit
   </h2>
+
+  <div class="hero-badges">
+    <span>BDA Approved</span>
+    <span>50+ Happy Families</span>
+    <span>Trusted by Home Buyers</span>
+  </div>
   <p>Secure your preferred plot or villa today</p>
 </section>
 
@@ -601,6 +690,17 @@ body.light .theme-toggle:hover{
 </div>
 
 <script>
+// Parallax hero effect (desktop only)
+window.addEventListener('scroll',function(){
+  if(window.innerWidth > 900){
+    const hero=document.querySelector('.hero');
+    if(hero){
+      const offset=window.pageYOffset;
+      hero.style.backgroundPositionY = (offset * 0.25) + 'px';
+    }
+  }
+});
+
 const scriptURL = "https://script.google.com/macros/s/AKfycby6mNQR0Lb300hWKVM1rB4IJ9THq2xmjAAAJ_ozflyxkkfA6XvI1WrJc5zHoHnXHKrM7Q/exec";
 const form = document.getElementById("leadForm");
 const occupationSelect = document.getElementById("occupationSelect");
