@@ -106,7 +106,7 @@ nav.shrink a{
 
     header{
   position:relative;
-  background-image:url('hero.jpg');
+  background-image:url('./hero.jpg'); /* use explicit relative path so GitHub Pages loads correctly */
   background-repeat:no-repeat;
   background-position:center 35%;
   background-size:cover;
@@ -164,7 +164,8 @@ nav.shrink a{
 /* Dark Overlay for Better Readability */
 /* Parallax background effect */
 header{
-  background-attachment:fixed;
+  background-attachment:fixed; /* parallax */
+  background-color:#0f172a; /* fallback if image fails to load */
 }
 
 header::before{
